@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.administrator.HaweiMWCBluetoothLe">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+
+    <uses-permission android:name="android.permission.START_PRINT_SERVICE_CONFIG_ACTIVITY" />
+
+    <!-- 照相的特征 -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <!-- 照相的权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--重力加速度传感器权限 -->
+    <uses-permission android:name="android.hardware.sensor.accelerometer"/>
+
+
+    -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/huaweiicon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <receiver android:name="com.example.administrator.HaweiMWCBluetoothLe.BluetoothLeAppReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.example.administrator.HaweiMWCBluetoothLe.CameraReceiver" >
+            <intent-filter android:priority="1000" >
+                <action android:name="android.hardware.action.NEW_PICTURE" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+            <intent-filter android:priority="1000" >
+                <action android:name="android.hardware.action.NEW_VIDEO" />
+                <data android:mimeType="video/*" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.example.administrator.HaweiMWCBluetoothLe.Alarmreceiver">
+            <intent-filter>
+                <action android:name="com.example.administrator.HaweiMWCBluetoothLe.alarm.action" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.example.administrator.HaweiMWCBluetoothLe.BluetoothLeAppDestory">
+            <intent-filter>
+                <action android:name="com.example.administrator.HaweiMWCBluetoothLe.ActivityFinish" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.example.administrator.HaweiMWCBluetoothLe.MyActivity"
+
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+
+            <!-- android:screenOrientation="landscape"
+            android:excludeFromRecents="true"
+             -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.administrator.HaweiMWCBluetoothLe.ControlActivity"
+
+            android:screenOrientation="landscape"
+            />
+        <!--
+          android:excludeFromRecents="true"
+                aandroid:hardwareAccelerated="true"
+                android:excludeFromRecents="true"
+                android:screenOrientation="portrait"
+        -->
+        <service
+            android:name="com.example.administrator.HaweiMWCBluetoothLe.BluetoothLeAppService"
+            android:enabled="true"
+            android:exported="true"
+            android:persistent="true">
+
+            <!-- android:process=":bluetoothLeAppService" -->
+        </service>
+
+        <service
+            android:name="com.example.administrator.HaweiMWCBluetoothLe.BluetoothLeNotifyServuce"
+            android:enabled="true"
+            android:exported="true" />
+
+    </application>
+
+</manifest>

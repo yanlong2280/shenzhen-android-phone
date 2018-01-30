@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    tools:context="com.example.administrator.HaweiMWCBluetoothLe.ControlActivity"
+    android:id="@+id/rl"
+    android:weightSum="1"
+    >
+-->
+    <RelativeLayout
+        android:id="@+id/topbarBase"
+        android:layout_width="fill_parent"
+        android:layout_height="36dp"
+        android:gravity="center"
+        android:background="@mipmap/tbimg"
+        >
+
+        <TextView
+            android:text="Please choose a horizontal photo for a better effect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rlListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rlStatus"
+        android:layout_below="@+id/topbarBase" >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fl"
+            android:gravity="center"
+            android:layout_gravity="center"
+            >
+
+            <ImageView
+                android:layout_width="1280px"
+                android:layout_height="720px"
+                android:src="@mipmap/bj"
+                android:id="@+id/imageView"
+                android:scaleType="fitXY"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="330px"
+                android:layout_marginTop="25px" />
+        </FrameLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlStatus"
+        android:layout_width="fill_parent"
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="36dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/logo"
+                    android:id="@+id/imageView7"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:paddingBottom="2dp"
+                    android:layout_marginEnd="40dp" />
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/he"
+                    android:id="@+id/imageView5"
+                    android:layout_alignBottom="@+id/imageView6"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="67dp" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/me"
+                    android:layout_marginStart="14dp"
+                    android:id="@+id/imageView6"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/imageView5" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:background="@mipmap/tbimg"
+                android:gravity="center"
+                android:scaleType="fitXY"
+                android:weightSum="1">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/simg"
+                    android:id="@+id/imageS"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:text="waiting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/textMsg" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout >
